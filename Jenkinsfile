@@ -7,6 +7,12 @@ pipeline {
         sh 'docker build -t devsecfrat:$BUILD_NUMBER .'
         }
        }
+    
+    stage('Test Run') {
+          steps {
+            sh 'docker run -d devsecfrat:$BUILD_NUMBER'
+          }
+          }
       }
      }
       
